@@ -1,0 +1,50 @@
+# Gastritis Diet Guide - GitHub Pages Configuration
+
+# This file helps with GitHub Pages deployment
+# It tells GitHub Pages to use Jekyll for processing
+
+# Basic configuration
+title: "Gastritis Diet Guide"
+description: "Complete dietary guide for gastritis patients with H. pylori infection"
+url: "https://yourusername.github.io"
+baseurl: "/gastritis"
+
+# GitHub Pages settings
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+author: "Gastritis Diet Guide"
+twitter:
+  username: ""
+facebook:
+  app_id: ""
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+
+# Include files
+include:
+  - _redirects
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+
+# Sass settings
+sass:
+  style: compressed
+
+# Collections (if needed in the future)
+collections_dir: collections
+
+# Default layout (not used for static HTML)
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
