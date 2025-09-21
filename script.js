@@ -1,6 +1,6 @@
-// Gastritis Diet Guide - Interactive Features
+// Gastritis Diet Guide - Interactive Features with Tailwind
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initializeNavigation();
     initializeSearchFunctionality();
     initializeScrollAnimations();
@@ -12,18 +12,18 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section[id]');
-    
+
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
-            
+
             if (targetSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
+                const headerHeight = document.querySelector('header').offsetHeight;
                 const targetPosition = targetSection.offsetTop - headerHeight - 20;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -31,16 +31,16 @@ function initializeNavigation() {
             }
         });
     });
-    
+
     // Active navigation highlighting
     function updateActiveNavigation() {
         const scrollPosition = window.scrollY + 100;
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
-            
+
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 navLinks.forEach(link => {
                     link.classList.remove('active');
@@ -51,7 +51,7 @@ function initializeNavigation() {
             }
         });
     }
-    
+
     window.addEventListener('scroll', updateActiveNavigation);
     updateActiveNavigation(); // Initial call
 }
@@ -60,48 +60,55 @@ function initializeNavigation() {
 function initializeSearchFunctionality() {
     // Create search bar
     const searchContainer = document.createElement('div');
-    searchContainer.className = 'search-container';
+    searchContainer.className = 'bg-white shadow-sm sticky top-16 z-40 py-8';
     searchContainer.innerHTML = `
-        <div class="search-wrapper">
-            <input type="text" id="food-search" placeholder="Search for foods..." class="search-input">
-            <button type="button" class="search-clear" id="clear-search" aria-label="Clear search">×</button>
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <input type="text" id="food-search" placeholder="Search for foods..." 
+                   class="w-full px-6 py-4 pr-12 text-lg border-2 border-gray-200 rounded-xl bg-gray-50 
+                          focus:outline-none focus:border-primary-500 focus:bg-white focus:ring-4 
+                          focus:ring-primary-100 transition-all duration-200">
+            <button type="button" id="clear-search" aria-label="Clear search"
+                    class="absolute right-6 top-1/2 transform -translate-y-1/2 text-2xl text-gray-400 
+                           hover:text-gray-600 hover:bg-gray-100 p-2 rounded-lg transition-colors">×</button>
+            <div id="search-results" 
+                 class="absolute top-full left-4 right-4 bg-white border border-gray-200 rounded-xl 
+                        shadow-lg max-h-96 overflow-y-auto hidden z-50 mt-2"></div>
         </div>
-        <div class="search-results" id="search-results"></div>
     `;
-    
+
     // Insert search bar after the hero section
-    const heroSection = document.querySelector('.hero');
+    const heroSection = document.querySelector('section.bg-gradient-to-r');
     heroSection.insertAdjacentElement('afterend', searchContainer);
-    
+
     const searchInput = document.getElementById('food-search');
     const clearButton = document.getElementById('clear-search');
     const searchResults = document.getElementById('search-results');
-    
+
     // Get all food items for searching
-    const foodItems = Array.from(document.querySelectorAll('.food-item')).map(item => ({
+    const foodItems = Array.from(document.querySelectorAll('.bg-gray-50.rounded-lg.p-4.border.border-gray-200')).map(item => ({
         element: item,
-        name: item.querySelector('.food-name').textContent.toLowerCase(),
-        reason: item.querySelector('.food-reason').textContent.toLowerCase(),
-        category: item.closest('.category-card').querySelector('h3').textContent,
-        type: item.closest('.section-danger') ? 'avoid' : 'eat'
+        name: item.querySelector('.font-medium').textContent.toLowerCase(),
+        reason: item.querySelector('.text-sm.text-gray-600').textContent.toLowerCase(),
+        category: item.closest('.bg-white.rounded-xl').querySelector('h3').textContent,
+        type: item.closest('#avoid') ? 'avoid' : 'eat'
     }));
-    
+
     let searchTimeout;
-    
-    searchInput.addEventListener('input', function() {
+
+    searchInput.addEventListener('input', function () {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(() => {
             performSearch(this.value.trim());
         }, 300);
     });
-    
-    clearButton.addEventListener('click', function() {
+
+    clearButton.addEventListener('click', function () {
         searchInput.value = '';
         searchResults.innerHTML = '';
         searchResults.style.display = 'none';
         resetHighlights();
     });
-    
+
     function performSearch(query) {
         if (query.length < 2) {
             searchResults.innerHTML = '';
@@ -109,86 +116,91 @@ function initializeSearchFunctionality() {
             resetHighlights();
             return;
         }
-        
-        const results = foodItems.filter(item => 
-            item.name.includes(query.toLowerCase()) || 
+
+        const results = foodItems.filter(item =>
+            item.name.includes(query.toLowerCase()) ||
             item.reason.includes(query.toLowerCase())
         );
-        
+
         displaySearchResults(results, query);
         highlightMatchingItems(results);
     }
-    
+
     function displaySearchResults(results, query) {
         if (results.length === 0) {
-            searchResults.innerHTML = '<div class="no-results">No foods found matching your search.</div>';
+            searchResults.innerHTML = '<div class="p-8 text-center text-gray-500">No foods found matching your search.</div>';
         } else {
             const resultsHTML = results.map(result => `
-                <div class="search-result-item ${result.type}" data-food="${result.name}">
-                    <div class="search-result-content">
-                        <span class="food-name">${highlightText(result.element.querySelector('.food-name').textContent, query)}</span>
-                        <span class="food-reason">${highlightText(result.element.querySelector('.food-reason').textContent, query)}</span>
-                        <span class="food-category">${result.category}</span>
-                        <span class="food-type-badge ${result.type}">${result.type === 'avoid' ? '❌ Avoid' : '✅ Safe to Eat'}</span>
+                <div class="p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors ${result.type}" data-food="${result.name}">
+                    <div class="flex flex-col space-y-2">
+                        <div class="font-semibold text-gray-900">${highlightText(result.element.querySelector('.font-medium').textContent, query)}</div>
+                        <div class="text-sm text-gray-600">${highlightText(result.element.querySelector('.text-sm.text-gray-600').textContent, query)}</div>
+                        <div class="text-xs text-gray-400 uppercase font-medium">${result.category}</div>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${result.type === 'avoid' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'} self-start">
+                            ${result.type === 'avoid' ? 'Avoid' : 'Safe to Eat'}
+                        </span>
                     </div>
                 </div>
             `).join('');
-            
+
             searchResults.innerHTML = resultsHTML;
-            
+
             // Add click handlers to scroll to food items
-            searchResults.querySelectorAll('.search-result-item').forEach(resultItem => {
-                resultItem.addEventListener('click', function() {
+            searchResults.querySelectorAll('[data-food]').forEach(resultItem => {
+                resultItem.addEventListener('click', function () {
                     const foodName = this.dataset.food;
-                    const targetElement = Array.from(document.querySelectorAll('.food-item')).find(item => 
-                        item.querySelector('.food-name').textContent.toLowerCase() === foodName
+                    const targetElement = Array.from(document.querySelectorAll('.bg-gray-50.rounded-lg.p-4.border.border-gray-200')).find(item =>
+                        item.querySelector('.font-medium').textContent.toLowerCase() === foodName
                     );
-                    
+
                     if (targetElement) {
-                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const headerHeight = 80;
                         const targetPosition = targetElement.offsetTop - headerHeight - 100;
-                        
+
                         window.scrollTo({
                             top: targetPosition,
                             behavior: 'smooth'
                         });
-                        
+
                         // Briefly highlight the target
-                        targetElement.style.backgroundColor = '#fef3c7';
+                        targetElement.classList.add('search-highlight');
                         setTimeout(() => {
-                            targetElement.style.backgroundColor = '';
+                            targetElement.classList.remove('search-highlight');
                         }, 2000);
                     }
+
+                    // Close search results
+                    searchResults.classList.add('hidden');
                 });
             });
         }
-        
-        searchResults.style.display = 'block';
+
+        searchResults.classList.remove('hidden');
     }
-    
+
     function highlightText(text, query) {
         if (!query) return text;
         const regex = new RegExp(`(${query})`, 'gi');
         return text.replace(regex, '<mark>$1</mark>');
     }
-    
+
     function highlightMatchingItems(results) {
         resetHighlights();
         results.forEach(result => {
             result.element.classList.add('search-highlight');
         });
     }
-    
+
     function resetHighlights() {
-        document.querySelectorAll('.food-item.search-highlight').forEach(item => {
+        document.querySelectorAll('.search-highlight').forEach(item => {
             item.classList.remove('search-highlight');
         });
     }
-    
+
     // Close search results when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (!searchContainer.contains(e.target)) {
-            searchResults.style.display = 'none';
+            searchResults.classList.add('hidden');
         }
     });
 }
@@ -199,7 +211,7 @@ function initializeScrollAnimations() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -208,12 +220,12 @@ function initializeScrollAnimations() {
             }
         });
     }, observerOptions);
-    
+
     // Observe elements for animation
     const elementsToAnimate = document.querySelectorAll(
-        '.overview-card, .category-card, .tip-card, .notice-card'
+        '.bg-white.rounded-xl, .bg-gray-50.rounded-lg'
     );
-    
+
     elementsToAnimate.forEach(element => {
         observer.observe(element);
     });
@@ -221,40 +233,40 @@ function initializeScrollAnimations() {
 
 // Mobile menu functionality
 function initializeMobileMenu() {
-    const nav = document.querySelector('.nav');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    // Create mobile menu toggle button
-    const mobileToggle = document.createElement('button');
-    mobileToggle.className = 'mobile-menu-toggle';
-    mobileToggle.innerHTML = '☰';
-    mobileToggle.setAttribute('aria-label', 'Toggle navigation menu');
-    
-    nav.appendChild(mobileToggle);
-    
-    mobileToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('mobile-open');
-        this.classList.toggle('active');
-        this.innerHTML = navMenu.classList.contains('mobile-open') ? '✕' : '☰';
-    });
-    
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('mobile-open');
-            mobileToggle.classList.remove('active');
-            mobileToggle.innerHTML = '☰';
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+
+            // Update button icon
+            const svg = mobileMenuButton.querySelector('svg');
+            if (mobileMenu.classList.contains('hidden')) {
+                svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+            } else {
+                svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+            }
         });
-    });
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!nav.contains(e.target)) {
-            navMenu.classList.remove('mobile-open');
-            mobileToggle.classList.remove('active');
-            mobileToggle.innerHTML = '☰';
-        }
-    });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                const svg = mobileMenuButton.querySelector('svg');
+                svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+                const svg = mobileMenuButton.querySelector('svg');
+                svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+            }
+        });
+    }
 }
 
 // Accessibility improvements
@@ -265,32 +277,32 @@ function initializeAccessibility() {
     skipLink.className = 'skip-link';
     skipLink.textContent = 'Skip to main content';
     document.body.insertBefore(skipLink, document.body.firstChild);
-    
+
     // Add main landmark
     const mainElement = document.querySelector('main');
     if (mainElement) {
         mainElement.id = 'main';
     }
-    
+
     // Keyboard navigation for cards
-    const interactiveCards = document.querySelectorAll('.overview-card, .tip-card');
+    const interactiveCards = document.querySelectorAll('.bg-white.rounded-xl');
     interactiveCards.forEach(card => {
         card.setAttribute('tabindex', '0');
-        
-        card.addEventListener('keydown', function(e) {
+
+        card.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 this.click();
             }
         });
     });
-    
+
     // Improve screen reader experience for food items
-    document.querySelectorAll('.food-item').forEach(item => {
-        const name = item.querySelector('.food-name').textContent;
-        const reason = item.querySelector('.food-reason').textContent;
-        const type = item.closest('.section-danger') ? 'food to avoid' : 'safe food';
-        
+    document.querySelectorAll('.bg-gray-50.rounded-lg.p-4.border.border-gray-200').forEach(item => {
+        const name = item.querySelector('.font-medium').textContent;
+        const reason = item.querySelector('.text-sm.text-gray-600').textContent;
+        const type = item.closest('#avoid') ? 'food to avoid' : 'safe food';
+
         item.setAttribute('aria-label', `${name}, ${reason}, ${type}`);
     });
 }
@@ -316,17 +328,17 @@ function printPage() {
 // Export data functionality (for future use)
 function exportFoodList(type = 'all') {
     const foods = [];
-    document.querySelectorAll('.food-item').forEach(item => {
-        const name = item.querySelector('.food-name').textContent;
-        const reason = item.querySelector('.food-reason').textContent;
-        const category = item.closest('.category-card').querySelector('h3').textContent;
-        const foodType = item.closest('.section-danger') ? 'avoid' : 'eat';
-        
+    document.querySelectorAll('.bg-gray-50.rounded-lg.p-4.border.border-gray-200').forEach(item => {
+        const name = item.querySelector('.font-medium').textContent;
+        const reason = item.querySelector('.text-sm.text-gray-600').textContent;
+        const category = item.closest('.bg-white.rounded-xl').querySelector('h3').textContent;
+        const foodType = item.closest('#avoid') ? 'avoid' : 'eat';
+
         if (type === 'all' || type === foodType) {
             foods.push({ name, reason, category, type: foodType });
         }
     });
-    
+
     return foods;
 }
 
@@ -347,144 +359,15 @@ function loadTheme() {
 // Initialize theme on load
 loadTheme();
 
-// Add CSS for search functionality
+// Add minimal CSS for search functionality since we're now using Tailwind
 const searchStyles = document.createElement('style');
 searchStyles.textContent = `
-    .search-container {
-        background: white;
-        padding: 2rem 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        position: sticky;
-        top: 80px;
-        z-index: 50;
-    }
-    
-    .search-wrapper {
-        max-width: 600px;
-        margin: 0 auto;
-        position: relative;
-        padding: 0 1rem;
-    }
-    
-    .search-input {
-        width: 100%;
-        padding: 1rem 3rem 1rem 1.5rem;
-        font-size: 1rem;
-        border: 2px solid #e5e7eb;
-        border-radius: 0.75rem;
-        background: #f9fafb;
-        transition: all 0.2s ease;
-    }
-    
-    .search-input:focus {
-        outline: none;
-        border-color: #2563eb;
-        background: white;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-    
-    .search-clear {
-        position: absolute;
-        right: 1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: #9ca3af;
-        cursor: pointer;
-        padding: 0.5rem;
-        border-radius: 0.375rem;
-        transition: color 0.2s ease;
-    }
-    
-    .search-clear:hover {
-        color: #6b7280;
-        background: #f3f4f6;
-    }
-    
-    .search-results {
-        position: absolute;
-        top: 100%;
-        left: 1rem;
-        right: 1rem;
-        background: white;
-        border: 1px solid #e5e7eb;
-        border-radius: 0.75rem;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        max-height: 400px;
-        overflow-y: auto;
-        display: none;
-        z-index: 100;
-    }
-    
-    .search-result-item {
-        padding: 1rem;
-        border-bottom: 1px solid #f3f4f6;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-    }
-    
-    .search-result-item:hover {
-        background-color: #f9fafb;
-    }
-    
-    .search-result-item:last-child {
-        border-bottom: none;
-    }
-    
-    .search-result-content {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-    }
-    
-    .search-result-item .food-name {
-        font-weight: 600;
-        color: #1f2937;
-    }
-    
-    .search-result-item .food-reason {
-        font-size: 0.875rem;
-        color: #6b7280;
-    }
-    
-    .search-result-item .food-category {
-        font-size: 0.75rem;
-        color: #9ca3af;
-        text-transform: uppercase;
-        font-weight: 500;
-    }
-    
-    .food-type-badge {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.375rem;
-        font-weight: 500;
-        align-self: flex-start;
-        margin-top: 0.5rem;
-    }
-    
-    .food-type-badge.avoid {
-        background: #fef2f2;
-        color: #dc2626;
-    }
-    
-    .food-type-badge.eat {
-        background: #f0fdf4;
-        color: #16a34a;
-    }
-    
-    .no-results {
-        padding: 2rem;
-        text-align: center;
-        color: #6b7280;
-    }
-    
     .search-highlight {
         background-color: #fef3c7 !important;
         transform: scale(1.02);
         box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
     }
     
     mark {
@@ -492,6 +375,7 @@ searchStyles.textContent = `
         color: #92400e;
         padding: 0.125rem 0.25rem;
         border-radius: 0.25rem;
+        font-weight: 600;
     }
     
     .skip-link {
@@ -511,54 +395,18 @@ searchStyles.textContent = `
         top: 6px;
     }
     
-    @media (max-width: 768px) {
-        .search-container {
-            top: 120px;
-        }
-        
-        .mobile-menu-toggle {
-            display: block;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #374151;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 0.375rem;
-            transition: background-color 0.2s ease;
-        }
-        
-        .mobile-menu-toggle:hover {
-            background-color: #f3f4f6;
-        }
-        
-        .nav-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 1rem;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .nav-menu.mobile-open {
-            display: flex;
-        }
-        
-        .nav-link {
-            text-align: center;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-        }
+    .fade-in {
+        animation: fadeInUp 0.6s ease-out forwards;
     }
     
-    @media (min-width: 769px) {
-        .mobile-menu-toggle {
-            display: none;
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 `;

@@ -1,0 +1,23 @@
+{
+  "name": "gastritis",
+  "version": "1.0.0",
+  "description": "A modern, comprehensive static website providing dietary guidance for patients with gastritis caused by Helicobacter pylori infection. Built with Tailwind CSS for a clean, professional appearance and optimal user experience.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ernadosmic/gastritis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ernadosmic/gastritis/issues"
+  },
+  "homepage": "https://github.com/ernadosmic/gastritis#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.13"
+  }
+}

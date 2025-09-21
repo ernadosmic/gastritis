@@ -1,203 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gastritis Diet Guide | H. pylori Recovery</title>
-    <meta name="description" content="Complete dietary guide for gastritis patients with H. pylori infection. Learn which foods to avoid and which foods help healing.">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description"
+        content="Complete dietary guide for gastritis patients with H. pylori infection. Learn which foods to avoid and which foods help healing.">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'primary': {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a'
+                        },
+                        'danger': {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d'
+                        },
+                        'success': {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="nav-brand">
-                    <h1>🍎 Gastritis Diet Guide</h1>
-                    <p>H. pylori Recovery Support</p>
+
+<body class="font-inter bg-gray-50">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold text-primary-600">Gastritis Diet Guide</h1>
+                    <p class="text-sm text-gray-600">H. pylori Recovery Support</p>
                 </div>
-                <div class="nav-menu">
-                    <a href="#overview" class="nav-link">Overview</a>
-                    <a href="#avoid" class="nav-link">Foods to Avoid</a>
-                    <a href="#eat" class="nav-link">Foods to Eat</a>
-                    <a href="#tips" class="nav-link">Tips</a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#overview"
+                            class="nav-link text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Overview</a>
+                        <a href="#avoid"
+                            class="nav-link text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Foods
+                            to Avoid</a>
+                        <a href="#eat"
+                            class="nav-link text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Foods
+                            to Eat</a>
+                        <a href="#tips"
+                            class="nav-link text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tips</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button"
+                        class="mobile-menu-button bg-white p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
             </nav>
+            <div class="md:hidden mobile-menu hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+                    <a href="#overview"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Overview</a>
+                    <a href="#avoid"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Foods
+                        to Avoid</a>
+                    <a href="#eat"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Foods
+                        to Eat</a>
+                    <a href="#tips"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50">Tips</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h2>Healing Your Stomach with the Right Foods</h2>
-                    <p class="hero-subtitle">A comprehensive guide to managing gastritis caused by <em>Helicobacter pylori</em> through proper nutrition</p>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">25+</span>
-                            <span class="stat-label">Foods to Avoid</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">30+</span>
-                            <span class="stat-label">Healing Foods</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">6</span>
-                            <span class="stat-label">Key Categories</span>
-                        </div>
+        <section class="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Healing Your Stomach with the Right Foods
+                </h2>
+                <p class="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto">A comprehensive guide to managing
+                    gastritis caused by <em>Helicobacter pylori</em> through proper nutrition</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">25+</div>
+                        <div class="text-lg opacity-80">Foods to Avoid</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">30+</div>
+                        <div class="text-lg opacity-80">Healing Foods</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">6</div>
+                        <div class="text-lg opacity-80">Key Categories</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Overview Section -->
-        <section id="overview" class="section">
-            <div class="container">
-                <h2 class="section-title">Understanding Gastritis & H. pylori</h2>
-                <div class="overview-grid">
-                    <div class="overview-card">
-                        <div class="card-icon">🦠</div>
-                        <h3>What is H. pylori?</h3>
-                        <p>Helicobacter pylori is a bacteria that can cause inflammation of the stomach lining (gastritis) and ulcers. Proper diet is crucial for healing.</p>
+        <section id="overview" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Understanding Gastritis & H.
+                    pylori</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div
+                        class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">What is H. pylori?</h3>
+                        <p class="text-gray-600 leading-relaxed">Helicobacter pylori is a bacteria that can cause
+                            inflammation of the stomach lining (gastritis) and ulcers. Proper diet is crucial for
+                            healing.</p>
                     </div>
-                    <div class="overview-card">
-                        <div class="card-icon">🍽️</div>
-                        <h3>Diet's Role</h3>
-                        <p>While antibiotics treat the infection, the right foods can reduce inflammation, promote healing, and prevent symptom flares.</p>
+                    <div
+                        class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Diet's Role</h3>
+                        <p class="text-gray-600 leading-relaxed">While antibiotics treat the infection, the right foods
+                            can reduce inflammation, promote healing, and prevent symptom flares.</p>
                     </div>
-                    <div class="overview-card">
-                        <div class="card-icon">⏰</div>
-                        <h3>Healing Timeline</h3>
-                        <p>Recovery varies, but following dietary guidelines consistently for 4-8 weeks typically shows significant improvement.</p>
+                    <div
+                        class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Healing Timeline</h3>
+                        <p class="text-gray-600 leading-relaxed">Recovery varies, but following dietary guidelines
+                            consistently for 4-8 weeks typically shows significant improvement.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Foods to Avoid Section -->
-        <section id="avoid" class="section section-danger">
-            <div class="container">
-                <h2 class="section-title">🚫 Foods to Avoid</h2>
-                <p class="section-subtitle">These foods can increase acid production, worsen inflammation, or irritate your stomach lining.</p>
-                
-                <div class="food-categories">
-                    <div class="category-card danger">
-                        <h3>🌶️ Spicy & Acidic Foods</h3>
-                        <div class="food-grid">
-                            <div class="food-item">
-                                <span class="food-name">Chili peppers</span>
-                                <span class="food-reason">Irritates stomach lining</span>
+        <section id="avoid" class="py-20 bg-danger-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-danger-600 mb-4">Foods to Avoid</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">These foods can increase acid production, worsen
+                        inflammation, or irritate your stomach lining.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-danger-500">
+                        <h3 class="text-xl font-semibold text-danger-600 mb-6">Spicy & Acidic Foods</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Chili peppers</div>
+                                <div class="text-sm text-gray-600 mt-1">Irritates stomach lining</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Hot sauces</span>
-                                <span class="food-reason">High capsaicin content</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Hot sauces</div>
+                                <div class="text-sm text-gray-600 mt-1">High capsaicin content</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Strong curries</span>
-                                <span class="food-reason">Multiple irritants</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Strong curries</div>
+                                <div class="text-sm text-gray-600 mt-1">Multiple irritants</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Citrus fruits</span>
-                                <span class="food-reason">High acid content</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Citrus fruits</div>
+                                <div class="text-sm text-gray-600 mt-1">High acid content</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Tomatoes</span>
-                                <span class="food-reason">Natural acids</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Tomatoes</div>
+                                <div class="text-sm text-gray-600 mt-1">Natural acids</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Tomato sauces</span>
-                                <span class="food-reason">Concentrated acids</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Tomato sauces</div>
+                                <div class="text-sm text-gray-600 mt-1">Concentrated acids</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="category-card danger">
-                        <h3>🍟 Fried & Greasy Foods</h3>
-                        <div class="food-grid">
-                            <div class="food-item">
-                                <span class="food-name">Deep-fried foods</span>
-                                <span class="food-reason">Hard to digest</span>
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-danger-500">
+                        <h3 class="text-xl font-semibold text-danger-600 mb-6">Fried & Greasy Foods</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Deep-fried foods</div>
+                                <div class="text-sm text-gray-600 mt-1">Hard to digest</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Fast food</span>
-                                <span class="food-reason">High fat content</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Fast food</div>
+                                <div class="text-sm text-gray-600 mt-1">High fat content</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Fatty meats</span>
-                                <span class="food-reason">Slows digestion</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="category-card danger">
-                        <h3>🥒 Pickled & Fermented Foods</h3>
-                        <div class="food-grid">
-                            <div class="food-item">
-                                <span class="food-name">Pickles</span>
-                                <span class="food-reason">High vinegar content</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Sauerkraut</span>
-                                <span class="food-reason">Acidic fermentation</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Spicy kimchi</span>
-                                <span class="food-reason">Spicy + acidic</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Fatty meats</div>
+                                <div class="text-sm text-gray-600 mt-1">Slows digestion</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="category-card danger">
-                        <h3>🍺 Problematic Drinks</h3>
-                        <div class="food-grid">
-                            <div class="food-item">
-                                <span class="food-name">Alcohol</span>
-                                <span class="food-reason">Erodes stomach lining</span>
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-danger-500">
+                        <h3 class="text-xl font-semibold text-danger-600 mb-6">Pickled & Fermented Foods</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Pickles</div>
+                                <div class="text-sm text-gray-600 mt-1">High vinegar content</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Coffee</span>
-                                <span class="food-reason">Stimulates acid</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Sauerkraut</div>
+                                <div class="text-sm text-gray-600 mt-1">Acidic fermentation</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Strong tea</span>
-                                <span class="food-reason">Caffeine effects</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Carbonated drinks</span>
-                                <span class="food-reason">Causes bloating</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Spicy kimchi</div>
+                                <div class="text-sm text-gray-600 mt-1">Spicy + acidic</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="category-card danger">
-                        <h3>🧀 Hard-to-Digest Foods</h3>
-                        <div class="food-grid">
-                            <div class="food-item">
-                                <span class="food-name">High-fat dairy</span>
-                                <span class="food-reason">Difficult digestion</span>
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-danger-500">
+                        <h3 class="text-xl font-semibold text-danger-600 mb-6">Problematic Drinks</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Alcohol</div>
+                                <div class="text-sm text-gray-600 mt-1">Erodes stomach lining</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Processed meats</span>
-                                <span class="food-reason">High sodium & fat</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Coffee</div>
+                                <div class="text-sm text-gray-600 mt-1">Stimulates acid</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Rich desserts</span>
-                                <span class="food-reason">High fat & sugar</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Strong tea</div>
+                                <div class="text-sm text-gray-600 mt-1">Caffeine effects</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Raw onions</span>
-                                <span class="food-reason">Can irritate</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Carbonated drinks</div>
+                                <div class="text-sm text-gray-600 mt-1">Causes bloating</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Raw garlic</span>
-                                <span class="food-reason">Strong compounds</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-danger-500">
+                        <h3 class="text-xl font-semibold text-danger-600 mb-6">Hard-to-Digest Foods</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">High-fat dairy</div>
+                                <div class="text-sm text-gray-600 mt-1">Difficult digestion</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Chocolate</span>
-                                <span class="food-reason">May worsen reflux</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Processed meats</div>
+                                <div class="text-sm text-gray-600 mt-1">High sodium & fat</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Rich desserts</div>
+                                <div class="text-sm text-gray-600 mt-1">High fat & sugar</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Raw onions</div>
+                                <div class="text-sm text-gray-600 mt-1">Can irritate</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Raw garlic</div>
+                                <div class="text-sm text-gray-600 mt-1">Strong compounds</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Chocolate</div>
+                                <div class="text-sm text-gray-600 mt-1">May worsen reflux</div>
                             </div>
                         </div>
                     </div>
@@ -206,170 +321,173 @@
         </section>
 
         <!-- Foods to Eat Section -->
-        <section id="eat" class="section section-safe">
-            <div class="container">
-                <h2 class="section-title">✅ Foods to Eat</h2>
-                <p class="section-subtitle">These gentle, healing foods can help reduce inflammation and support your recovery.</p>
-                
-                <div class="food-categories">
-                    <div class="category-card safe">
-                        <h3>🥣 Easy-to-Digest Carbohydrates</h3>
-                        <div class="food-grid">
-                            <div class="food-item">
-                                <span class="food-name">Oatmeal</span>
-                                <span class="food-reason">Soft & soothing</span>
+        <section id="eat" class="py-20 bg-success-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-success-600 mb-4">Foods to Eat</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">These gentle, healing foods can help reduce
+                        inflammation and support your recovery.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-success-500">
+                        <h3 class="text-xl font-semibold text-success-600 mb-6">Easy-to-Digest Carbohydrates</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Oatmeal</div>
+                                <div class="text-sm text-gray-600 mt-1">Soft & soothing</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Cream of rice</span>
-                                <span class="food-reason">Very gentle</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Cream of rice</div>
+                                <div class="text-sm text-gray-600 mt-1">Very gentle</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Cream of wheat</span>
-                                <span class="food-reason">Bland & healing</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Cream of wheat</div>
+                                <div class="text-sm text-gray-600 mt-1">Bland & healing</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">White rice</span>
-                                <span class="food-reason">Easy digestion</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">White rice</div>
+                                <div class="text-sm text-gray-600 mt-1">Easy digestion</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Potatoes</span>
-                                <span class="food-reason">Plain, well-cooked</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Potatoes</div>
+                                <div class="text-sm text-gray-600 mt-1">Plain, well-cooked</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Sweet potatoes</span>
-                                <span class="food-reason">Gentle nutrients</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Sweet potatoes</div>
+                                <div class="text-sm text-gray-600 mt-1">Gentle nutrients</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Bananas</span>
-                                <span class="food-reason">Low acid, soft</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Bananas</div>
+                                <div class="text-sm text-gray-600 mt-1">Low acid, soft</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Applesauce</span>
-                                <span class="food-reason">Processed, gentle</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Applesauce</div>
+                                <div class="text-sm text-gray-600 mt-1">Processed, gentle</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Pears</span>
-                                <span class="food-reason">Soft, less acidic</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Pears</div>
+                                <div class="text-sm text-gray-600 mt-1">Soft, less acidic</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="category-card safe">
-                        <h3>🐟 Lean Protein Sources</h3>
-                        <div class="food-grid">
-                            <div class="food-item">
-                                <span class="food-name">Skinless chicken</span>
-                                <span class="food-reason">Baked or poached</span>
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-success-500">
+                        <h3 class="text-xl font-semibold text-success-600 mb-6">Lean Protein Sources</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Skinless chicken</div>
+                                <div class="text-sm text-gray-600 mt-1">Baked or poached</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Turkey breast</span>
-                                <span class="food-reason">Lean & mild</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Turkey breast</div>
+                                <div class="text-sm text-gray-600 mt-1">Lean & mild</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">White fish</span>
-                                <span class="food-reason">Cod, tilapia - gentle</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">White fish</div>
+                                <div class="text-sm text-gray-600 mt-1">Cod, tilapia - gentle</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Eggs</span>
-                                <span class="food-reason">Boiled or scrambled</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Eggs</div>
+                                <div class="text-sm text-gray-600 mt-1">Boiled or scrambled</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Lentils</span>
-                                <span class="food-reason">Cooked until soft</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Lentils</div>
+                                <div class="text-sm text-gray-600 mt-1">Cooked until soft</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Chickpeas</span>
-                                <span class="food-reason">Well-cooked, mild</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="category-card safe">
-                        <h3>🍈 Non-Acidic Fruits & Vegetables</h3>
-                        <div class="food-grid">
-                            <div class="food-item">
-                                <span class="food-name">Melons</span>
-                                <span class="food-reason">Low acid content</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Papayas</span>
-                                <span class="food-reason">Digestive enzymes</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Peaches</span>
-                                <span class="food-reason">Gentle & sweet</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Blueberries</span>
-                                <span class="food-reason">Antioxidants</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Cooked carrots</span>
-                                <span class="food-reason">Soft & nutritious</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Zucchini</span>
-                                <span class="food-reason">Mild & easy</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Green beans</span>
-                                <span class="food-reason">Well-cooked</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Squash</span>
-                                <span class="food-reason">Naturally sweet</span>
-                            </div>
-                            <div class="food-item">
-                                <span class="food-name">Cooked spinach</span>
-                                <span class="food-reason">Nutrients, gentle</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Chickpeas</div>
+                                <div class="text-sm text-gray-600 mt-1">Well-cooked, mild</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="category-card safe">
-                        <h3>🥛 Low-Fat Dairy & Alternatives</h3>
-                        <div class="food-grid">
-                            <div class="food-item">
-                                <span class="food-name">Low-fat yogurt</span>
-                                <span class="food-reason">Probiotics for gut</span>
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-success-500">
+                        <h3 class="text-xl font-semibold text-success-600 mb-6">Non-Acidic Fruits & Vegetables</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Melons</div>
+                                <div class="text-sm text-gray-600 mt-1">Low acid content</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Skim milk</span>
-                                <span class="food-reason">If tolerated well</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Papayas</div>
+                                <div class="text-sm text-gray-600 mt-1">Digestive enzymes</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Lactose-free milk</span>
-                                <span class="food-reason">Easier digestion</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Peaches</div>
+                                <div class="text-sm text-gray-600 mt-1">Gentle & sweet</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Almond milk</span>
-                                <span class="food-reason">Fortified, gentle</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Blueberries</div>
+                                <div class="text-sm text-gray-600 mt-1">Antioxidants</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Oat milk</span>
-                                <span class="food-reason">Creamy alternative</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Cooked carrots</div>
+                                <div class="text-sm text-gray-600 mt-1">Soft & nutritious</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Zucchini</div>
+                                <div class="text-sm text-gray-600 mt-1">Mild & easy</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Green beans</div>
+                                <div class="text-sm text-gray-600 mt-1">Well-cooked</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Squash</div>
+                                <div class="text-sm text-gray-600 mt-1">Naturally sweet</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Cooked spinach</div>
+                                <div class="text-sm text-gray-600 mt-1">Nutrients, gentle</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="category-card safe">
-                        <h3>🍵 Soothing Drinks & Additions</h3>
-                        <div class="food-grid">
-                            <div class="food-item">
-                                <span class="food-name">Chamomile tea</span>
-                                <span class="food-reason">Anti-inflammatory</span>
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-success-500">
+                        <h3 class="text-xl font-semibold text-success-600 mb-6">Low-Fat Dairy & Alternatives</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Low-fat yogurt</div>
+                                <div class="text-sm text-gray-600 mt-1">Probiotics for gut</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Ginger tea</span>
-                                <span class="food-reason">Digestive aid</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Skim milk</div>
+                                <div class="text-sm text-gray-600 mt-1">If tolerated well</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Plain water</span>
-                                <span class="food-reason">Stay hydrated</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Lactose-free milk</div>
+                                <div class="text-sm text-gray-600 mt-1">Easier digestion</div>
                             </div>
-                            <div class="food-item">
-                                <span class="food-name">Manuka honey</span>
-                                <span class="food-reason">May help with H. pylori</span>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Almond milk</div>
+                                <div class="text-sm text-gray-600 mt-1">Fortified, gentle</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Oat milk</div>
+                                <div class="text-sm text-gray-600 mt-1">Creamy alternative</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-success-500">
+                        <h3 class="text-xl font-semibold text-success-600 mb-6">Soothing Drinks & Additions</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Chamomile tea</div>
+                                <div class="text-sm text-gray-600 mt-1">Anti-inflammatory</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Ginger tea</div>
+                                <div class="text-sm text-gray-600 mt-1">Digestive aid</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Plain water</div>
+                                <div class="text-sm text-gray-600 mt-1">Stay hydrated</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <div class="font-medium text-gray-900">Manuka honey</div>
+                                <div class="text-sm text-gray-600 mt-1">May help with H. pylori</div>
                             </div>
                         </div>
                     </div>
@@ -378,48 +496,126 @@
         </section>
 
         <!-- Tips Section -->
-        <section id="tips" class="section">
-            <div class="container">
-                <h2 class="section-title">💡 Cooking & Lifestyle Tips</h2>
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <div class="tip-icon">👨‍🍳</div>
-                        <h3>Gentle Cooking Methods</h3>
-                        <ul>
-                            <li>Bake, boil, steam, or poach instead of frying</li>
-                            <li>Use minimal oil when cooking</li>
-                            <li>Cook vegetables until soft</li>
-                            <li>Remove skins from fruits when possible</li>
+        <section id="tips" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Cooking & Lifestyle Tips</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div
+                        class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Gentle Cooking Methods</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Bake, boil, steam, or poach instead of frying
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Use minimal oil when cooking
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Cook vegetables until soft
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Remove skins from fruits when possible
+                            </li>
                         </ul>
                     </div>
-                    <div class="tip-card">
-                        <div class="tip-icon">🧂</div>
-                        <h3>Mild Seasonings</h3>
-                        <ul>
-                            <li>Use turmeric (anti-inflammatory)</li>
-                            <li>Fresh parsley and dill are gentle</li>
-                            <li>Small amounts of salt are okay</li>
-                            <li>Avoid hot peppers and vinegar</li>
+                    <div
+                        class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-600 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 3v10a2 2 0 002 2h6a2 2 0 002-2V7M7 7h10l-1 10H8L7 7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Mild Seasonings</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Use turmeric (anti-inflammatory)
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Fresh parsley and dill are gentle
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Small amounts of salt are okay
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Avoid hot peppers and vinegar
+                            </li>
                         </ul>
                     </div>
-                    <div class="tip-card">
-                        <div class="tip-icon">🍽️</div>
-                        <h3>Eating Habits</h3>
-                        <ul>
-                            <li>Eat smaller, more frequent meals</li>
-                            <li>Chew food thoroughly</li>
-                            <li>Don't eat 2-3 hours before bed</li>
-                            <li>Stay upright after eating</li>
+                    <div
+                        class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Eating Habits</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Eat smaller, more frequent meals
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Chew food thoroughly
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Don't eat 2-3 hours before bed
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Stay upright after eating
+                            </li>
                         </ul>
                     </div>
-                    <div class="tip-card">
-                        <div class="tip-icon">🚭</div>
-                        <h3>Lifestyle Changes</h3>
-                        <ul>
-                            <li>Quit smoking if you smoke</li>
-                            <li>Manage stress through relaxation</li>
-                            <li>Get adequate sleep</li>
-                            <li>Follow your doctor's medication schedule</li>
+                    <div
+                        class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-rose-500 to-rose-600 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Lifestyle Changes</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Quit smoking if you smoke
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Manage stress through relaxation
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Get adequate sleep
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Follow your doctor's medication schedule
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -427,44 +623,60 @@
         </section>
 
         <!-- Important Notice -->
-        <section class="notice-section">
-            <div class="container">
-                <div class="notice-card">
-                    <div class="notice-icon">⚠️</div>
-                    <div class="notice-content">
-                        <h3>Important Medical Notice</h3>
-                        <p>This dietary guide is for informational purposes only and should not replace professional medical advice. Always consult with your healthcare provider before making significant dietary changes, especially when dealing with H. pylori infection and gastritis. Individual responses to foods may vary.</p>
+        <section class="py-12 bg-amber-50 border-t border-amber-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-amber-500">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <svg class="h-8 w-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Important Medical Notice</h3>
+                            <p class="text-gray-600 leading-relaxed">This dietary guide is for informational purposes
+                                only and should not replace professional medical advice. Always consult with your
+                                healthcare provider before making significant dietary changes, especially when dealing
+                                with H. pylori infection and gastritis. Individual responses to foods may vary.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>About This Guide</h4>
-                    <p>Created to help gastritis patients navigate their dietary choices during H. pylori treatment and recovery.</p>
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">About This Guide</h4>
+                    <p class="text-gray-300 leading-relaxed">Created to help gastritis patients navigate their dietary
+                        choices during H. pylori treatment and recovery.</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <a href="#overview">Overview</a>
-                    <a href="#avoid">Foods to Avoid</a>
-                    <a href="#eat">Foods to Eat</a>
-                    <a href="#tips">Tips</a>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="#overview" class="block text-gray-300 hover:text-white transition-colors">Overview</a>
+                        <a href="#avoid" class="block text-gray-300 hover:text-white transition-colors">Foods to
+                            Avoid</a>
+                        <a href="#eat" class="block text-gray-300 hover:text-white transition-colors">Foods to Eat</a>
+                        <a href="#tips" class="block text-gray-300 hover:text-white transition-colors">Tips</a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Remember</h4>
-                    <p>Always work with your healthcare provider for the best treatment plan tailored to your specific needs.</p>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Remember</h4>
+                    <p class="text-gray-300 leading-relaxed">Always work with your healthcare provider for the best
+                        treatment plan tailored to your specific needs.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Gastritis Diet Guide. For educational purposes only.</p>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2025 Gastritis Diet Guide. For educational purposes only.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>

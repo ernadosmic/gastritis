@@ -1,11 +1,12 @@
-# Gastritis Diet Guide 🍎
+# Gastritis Diet Guide
 
-A comprehensive static website providing dietary guidance for patients with gastritis caused by Helicobacter pylori infection. This website helps users understand which foods to avoid and which foods can support healing during recovery.
+A modern, comprehensive static website providing dietary guidance for patients with gastritis caused by Helicobacter pylori infection. Built with Tailwind CSS for a clean, professional appearance and optimal user experience.
 
-## 🌟 Features
+## Features
 
 - **Comprehensive Food Lists**: Detailed categorization of foods to avoid and foods that support healing
-- **Interactive Search**: Quick search functionality to find specific foods
+- **Interactive Search**: Real-time search functionality with highlighting and smart filtering
+- **Modern Design**: Built with Tailwind CSS for a clean, professional medical website appearance
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 - **Accessibility**: Built with screen readers and keyboard navigation in mind
 - **Medical Focus**: Clear, evidence-based dietary recommendations
@@ -14,6 +15,7 @@ A comprehensive static website providing dietary guidance for patients with gast
 ## 📋 Contents
 
 ### Foods to Avoid
+
 - Spicy & Acidic Foods
 - Fried & Greasy Foods
 - Pickled & Fermented Foods
@@ -21,6 +23,7 @@ A comprehensive static website providing dietary guidance for patients with gast
 - Hard-to-Digest Foods
 
 ### Foods to Eat
+
 - Easy-to-Digest Carbohydrates
 - Lean Protein Sources
 - Non-Acidic Fruits & Vegetables
@@ -28,6 +31,7 @@ A comprehensive static website providing dietary guidance for patients with gast
 - Soothing Drinks & Additions
 
 ### Additional Resources
+
 - Cooking tips and methods
 - Lifestyle recommendations
 - Important medical notices
@@ -41,20 +45,22 @@ This website is designed to be deployed on GitHub Pages. To deploy:
 3. Choose the main branch as the source
 4. Your site will be available at `https://yourusername.github.io/gastritis`
 
-## 📱 Technology Stack
+## Technology Stack
 
 - **HTML5**: Semantic markup with accessibility features
-- **CSS3**: Modern styling with CSS Grid and Flexbox
+- **Tailwind CSS**: Modern utility-first CSS framework for consistent, professional styling
 - **Vanilla JavaScript**: Interactive features without external dependencies
-- **Google Fonts**: Inter font family for better readability
+- **Google Fonts**: Inter font family for optimal readability
 
-## 🎨 Design Features
+## Design Features
 
-- Clean, medical-friendly color scheme
+- Modern, clean design using Tailwind CSS
+- Professional medical website appearance
 - Mobile-first responsive design
-- Smooth animations and transitions
-- Print-friendly styles
+- Smooth animations and micro-interactions
 - High contrast text for readability
+- Intuitive card-based layout system
+- Gradient hero sections and modern iconography
 
 ## ⚠️ Medical Disclaimer
 
